@@ -278,7 +278,7 @@ c = collections.Counter(w_list)
 fig = plt.subplots(figsize=(8, 8))
 sns.countplot(y=w_list,order=[i[0] for i in c.most_common(20)])
 
-#感情スコアを算出する
+#感情スコア算出
 POSITIVE = "POSITIVE"
 NEGATIVE = "NEGATIVE"
 NEUTRAL = "NEUTRAL"
@@ -303,7 +303,7 @@ def predict(text, model, include_neutral=True):
     results = f"label : {label}, score : {float(score):.2f}, text : {text}"
     return results
   
-#感情スコア算出ようのテキストを抽出する
+#テストデータからテキストを抽出する
 def text_label(text_index, label_index):
   text = test_sentences[text_index]
   label = test_labels[label_index]
@@ -313,7 +313,7 @@ def text_label(text_index, label_index):
 print(text_label(1, 1))
 print(text_label(2, 2))
 
-#感情スコアを確認する
+#感情スコアを算出する
 text1 = test_sentences[1] #label:1
 text2 = test_sentences[2] #label:0
 print(predict(text1, model2))
